@@ -61,10 +61,11 @@
 - **Context-Aware Markers** — Icons dynamically filter based on the active dashboard (e.g., Waste view vs. Traffic view)
 - **Live Asset Telemetry** — Real-time voltage monitoring, fill levels, and parking availability city-wide
 
-### 🤖 Predictive AI & Analytics
-- **Gemini-Powered Chatbot** — Interactive operational AI terminal for city queries
-- **Multispectral Risk Forecast** — Advanced time-series prediction for Traffic, Power, and Safety
-- **Anomaly Detection** — Machine-learning based scoring of urban infrastructure health
+### 🤖 Predictive AI Core
+- **Gemini-Powered Chatbot** — Interactive operational AI terminal for real-time city queries
+- **Multispectral Risk Forecast** — Advanced 24-hour time-series prediction for Traffic, Power, and Safety
+- **Anomaly Detection Engine** — High-precision monitoring of infrastructure health with confidence scoring
+- **Predictive Load Balancing** — Automated power grid and traffic flow optimization suggestions
 
 ### 📦 Asset Grid & Infrastructure
 - **Complete Inventory** — Digital log of all CCTVs, Smart Poles, and IoT nodes
@@ -79,17 +80,20 @@
 - **Waste Composition Tracking** — Metrics on organic, plastic, paper, and metal segregation
 
 ### 🌦️ ATMOS
-- Live weather data integration via OpenWeatherMap API
-- Dynamic animated weather backgrounds (rain, clouds, sun, snow, thunderstorm)
-- 5-day forecast, humidity, wind speed, UV index, and air quality panels
-- Sunrise/sunset tracking with golden hour indicators
+- **Real-Time Weather Core** — Live data integration via OpenWeatherMap API
+- **Dynamic Atmospheric Backgrounds** — Animated weather states (Rain, Clouds, Sun, Storms)
+- **ATMOS Advisor** — AI-driven operational recommendations based on upcoming weather shifts
+- **Micro-Climate Monitoring** — Detailed humidity, wind speed, UV index, and air quality metrics
 
 ### 📊 Analytics & Intelligence Panels
 - **Overview Panel** — City-wide KPIs and sector health monitoring
 - **Traffic Intelligence** — Advanced real-time flow control and AI diversion
 - **Safety Panel** — Incident tracking and emergency response metrics
 - **Utilities Panel** — Water, electricity, and gas infrastructure monitoring
-- **Environmental Panel** — Pollution levels, green coverage, and carbon metrics
+- **Environmental Analytics** — Real-time monitoring of air quality, green coverage, and noise levels
+- **Upper Lake Intelligence** — Specialized telemetry for Bhopal's Upper Lake (PH Level, Dissolved Oxygen)
+- **Urban Heat Index** — Mapping of city heat-island effects for climate-resilient planning
+- **Noise Pollution Monitor** — Sector-specific decibel tracking for industrial and residential zones
 - **Predictive AI Dashboard** — ML-powered forecasting and interactive chatbot
 - **Asset Grid Panel** — Infrastructure asset inventory and health tracking
 - **Logistics Panel** — Supply chain and municipal logistics monitoring
