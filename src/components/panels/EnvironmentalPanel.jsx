@@ -55,37 +55,57 @@ export function EnvironmentalPanel() {
                 <p className="text-sm font-bold text-white">32°C</p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-slate-800 rounded">
-                <Droplets size={16} className="text-neon-blue" />
-              </div>
-              <div>
-                <p className="text-[9px] font-mono text-slate-500 uppercase">Humidity</p>
-                <p className="text-sm font-bold text-white">45%</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-slate-800 rounded">
-                <Leaf size={16} className="text-neon-green" />
-              </div>
-              <div>
-                <p className="text-[9px] font-mono text-slate-500 uppercase">CO2 Level</p>
-                <p className="text-sm font-bold text-white">412 ppm</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-slate-800 rounded">
-                <CloudRain size={16} className="text-slate-500" />
-              </div>
-              <div>
-                <p className="text-[9px] font-mono text-slate-500 uppercase">Precip</p>
-                <p className="text-sm font-bold text-white">0.0 mm</p>
+            <div className="flex-1">
+              <p className="text-[9px] font-mono text-slate-500 uppercase">Urban Heat Index</p>
+              <div className="w-full bg-slate-800 h-1.5 rounded-full mt-1">
+                <div className="bg-gradient-to-r from-neon-yellow to-neon-red h-full w-[78%]"></div>
               </div>
             </div>
           </div>
         </GlassPanel>
 
-        <GlassPanel className="p-5 mt-auto">
+        <GlassPanel className="p-5">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="font-display font-bold tracking-widest text-[10px] text-slate-200 uppercase flex items-center gap-2">
+              <Droplets size={14} className="text-neon-blue" /> UPPER LAKE QUALITY
+            </h3>
+            <span className="text-[9px] font-mono text-neon-blue border border-neon-blue/30 px-2 py-0.5 rounded">POTABLE</span>
+          </div>
+          <div className="space-y-3">
+            <div>
+              <div className="flex justify-between text-[9px] font-mono mb-1">
+                <span className="text-slate-500">PH LEVEL</span>
+                <span className="text-white">7.2 (Optimal)</span>
+              </div>
+              <div className="w-full bg-slate-800 h-1 rounded-full"><div className="bg-neon-blue h-full w-[72%]"></div></div>
+            </div>
+            <div>
+              <div className="flex justify-between text-[9px] font-mono mb-1">
+                <span className="text-slate-500">DISSOLVED OXYGEN</span>
+                <span className="text-white">8.5 mg/L</span>
+              </div>
+              <div className="w-full bg-slate-800 h-1 rounded-full"><div className="bg-neon-cyan h-full w-[85%]"></div></div>
+            </div>
+          </div>
+        </GlassPanel>
+
+        <GlassPanel className="p-5">
+          <h3 className="font-display font-bold tracking-widest text-[10px] text-slate-200 uppercase mb-4 flex items-center gap-2">
+            <Wind size={14} className="text-neon-yellow" /> NOISE POLLUTION (db)
+          </h3>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-black/20 p-3 rounded-lg border border-white/5">
+              <p className="text-[9px] text-slate-500 uppercase mb-1">MP NAGAR</p>
+              <p className="text-lg font-black text-neon-yellow">68 <span className="text-[10px] font-normal text-slate-400">dB</span></p>
+            </div>
+            <div className="bg-black/20 p-3 rounded-lg border border-white/5">
+              <p className="text-[9px] text-slate-500 uppercase mb-1">ARERA COLONY</p>
+              <p className="text-lg font-black text-neon-green">42 <span className="text-[10px] font-normal text-slate-400">dB</span></p>
+            </div>
+          </div>
+        </GlassPanel>
+
+        <GlassPanel className="p-5">
           <h3 className="font-display font-bold tracking-widest text-[10px] text-slate-200 uppercase mb-4">CITY GREEN BELT STATUS</h3>
           <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
             <div className="bg-neon-green h-full w-[68%] shadow-[0_0_10px_#39ff14]"></div>

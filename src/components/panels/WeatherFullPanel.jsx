@@ -109,7 +109,7 @@ export function WeatherFullPanel() {
             </div>
             <div>
               <h1 className="text-3xl font-display font-black text-white tracking-tighter uppercase leading-none">
-                ATMOSPHERE <span className="text-neon-cyan">AI</span>
+                ATMOS
               </h1>
               <div className="flex items-center gap-2 mt-2">
                 <div className="w-2 h-2 rounded-full bg-neon-cyan shadow-[0_0_10px_rgba(0,245,255,0.8)]"></div>
@@ -182,7 +182,7 @@ export function WeatherFullPanel() {
                     <Brain className="text-neon-cyan w-5 h-5 animate-pulse" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-display font-black text-white tracking-widest uppercase">Atmosphere AI Advisor</h3>
+                    <h3 className="text-sm font-display font-black text-white tracking-widest uppercase">ATMOS Advisor</h3>
                     <p className="text-[8px] font-mono text-slate-500 uppercase tracking-widest font-black">Neural Intelligence Link :: Active</p>
                   </div>
                 </div>

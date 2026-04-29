@@ -78,7 +78,7 @@
 - **Fleet Dispatch System** — Live tracking of waste collection trucks with Active/Delayed routing status
 - **Waste Composition Tracking** — Metrics on organic, plastic, paper, and metal segregation
 
-### 🌦️ Atmosphere AI (Weather Intelligence)
+### 🌦️ ATMOS
 - Live weather data integration via OpenWeatherMap API
 - Dynamic animated weather backgrounds (rain, clouds, sun, snow, thunderstorm)
 - 5-day forecast, humidity, wind speed, UV index, and air quality panels

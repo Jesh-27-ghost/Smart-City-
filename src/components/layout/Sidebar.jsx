@@ -22,7 +22,7 @@ const navItems = [
   { id: 'predictive-ai', label: 'Predictive AI', icon: Brain, category: 'Intelligence' },
   { id: 'asset-grid', label: 'Asset Grid', icon: Cpu, category: 'Intelligence' },
   { id: 'environmental', label: 'Environmental', icon: CloudSun, category: 'Analysis' },
-  { id: 'weather', label: 'Atmosphere AI', icon: Zap, category: 'Analysis' },
+  { id: 'weather', label: 'ATMOS', icon: Zap, category: 'Analysis' },
   { id: 'logistics', label: 'Logistics', icon: Truck, category: 'Execution' },
   { id: 'parking', label: 'Smart Parking', icon: Car, category: 'Execution' },
   { id: 'smart-bins', label: 'Smart Bins', icon: Trash2, category: 'Execution' },

@@ -5,14 +5,18 @@ import { Brain, Zap, AlertTriangle, TrendingUp, Send, Bot, User, Activity, Datab
 import { AreaChart, Area, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts'
 
 const FORECAST_DATA = [
-  { time: '18:00', risk: 30, traffic: 45, power: 80 },
-  { time: '20:00', risk: 45, traffic: 65, power: 85 },
-  { time: '22:00', risk: 60, traffic: 30, power: 60 },
-  { time: '00:00', risk: 25, traffic: 15, power: 45 },
-  { time: '02:00', risk: 15, traffic: 10, power: 40 },
-  { time: '04:00', risk: 20, traffic: 20, power: 50 },
-  { time: '06:00', risk: 50, traffic: 75, power: 70 },
-  { time: '08:00', risk: 85, traffic: 95, power: 90 },
+  { time: '12:00', risk: 20, traffic: 40, power: 75, safety: 90 },
+  { time: '14:00', risk: 35, traffic: 55, power: 80, safety: 85 },
+  { time: '16:00', risk: 40, traffic: 60, power: 70, safety: 80 },
+  { time: '18:00', risk: 55, traffic: 85, power: 90, safety: 75 },
+  { time: '20:00', risk: 75, traffic: 90, power: 95, safety: 70 },
+  { time: '22:00', risk: 60, traffic: 50, power: 80, safety: 85 },
+  { time: '00:00', risk: 30, traffic: 20, power: 60, safety: 95 },
+  { time: '02:00', risk: 15, traffic: 10, power: 45, safety: 98 },
+  { time: '04:00', risk: 25, traffic: 30, power: 50, safety: 95 },
+  { time: '06:00', risk: 50, traffic: 70, power: 65, safety: 90 },
+  { time: '08:00', risk: 85, traffic: 95, power: 85, safety: 80 },
+  { time: '10:00', risk: 65, traffic: 75, power: 80, safety: 85 },
 ]
 
 const ANOMALIES = [
@@ -114,9 +118,10 @@ export function PredictiveAIPanel() {
                 <span className="flex items-center gap-1 text-neon-cyan"><div className="w-2 h-2 bg-neon-cyan rounded-full"></div> Total Risk</span>
                 <span className="flex items-center gap-1 text-neon-yellow"><div className="w-2 h-2 bg-neon-yellow rounded-full"></div> Traffic</span>
                 <span className="flex items-center gap-1 text-neon-purple"><div className="w-2 h-2 bg-neon-purple rounded-full"></div> Power</span>
+                <span className="flex items-center gap-1 text-neon-green"><div className="w-2 h-2 bg-neon-green rounded-full"></div> Safety</span>
               </div>
             </div>
-            <div className="flex-1 w-full min-h-[200px]">
+            <div className="h-[320px] w-full mt-4 shrink-0">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={FORECAST_DATA} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                   <defs>
@@ -132,17 +137,22 @@ export function PredictiveAIPanel() {
                       <stop offset="5%" stopColor="#7551ff" stopOpacity={0.2}/>
                       <stop offset="95%" stopColor="#7551ff" stopOpacity={0}/>
                     </linearGradient>
+                    <linearGradient id="colorSafety" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#39ff14" stopOpacity={0.1}/>
+                      <stop offset="95%" stopColor="#39ff14" stopOpacity={0}/>
+                    </linearGradient>
                   </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#ffffff10" vertical={false} />
-                  <XAxis dataKey="time" stroke="#ffffff40" fontSize={10} tickLine={false} axisLine={false} />
-                  <YAxis stroke="#ffffff40" fontSize={10} tickLine={false} axisLine={false} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#ffffff05" vertical={false} />
+                  <XAxis dataKey="time" stroke="#ffffff20" fontSize={9} tickLine={false} axisLine={false} />
+                  <YAxis stroke="#ffffff20" fontSize={9} tickLine={false} axisLine={false} />
                   <Tooltip 
                     contentStyle={{ backgroundColor: '#02040a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '1rem' }}
-                    itemStyle={{ fontSize: '12px', fontWeight: 'bold' }}
+                    itemStyle={{ fontSize: '11px', fontWeight: 'bold' }}
                   />
-                  <Area type="monotone" dataKey="risk" stroke="#00f5ff" strokeWidth={2} fill="url(#colorRisk)" />
-                  <Area type="monotone" dataKey="traffic" stroke="#fbbf24" strokeWidth={2} fill="url(#colorTraffic)" />
-                  <Area type="monotone" dataKey="power" stroke="#7551ff" strokeWidth={2} fill="url(#colorPower)" />
+                  <Area type="monotone" dataKey="risk" stroke="#00f5ff" strokeWidth={3} fill="url(#colorRisk)" animationDuration={2000} />
+                  <Area type="monotone" dataKey="traffic" stroke="#fbbf24" strokeWidth={2} fill="url(#colorTraffic)" animationDuration={2500} />
+                  <Area type="monotone" dataKey="power" stroke="#7551ff" strokeWidth={2} fill="url(#colorPower)" animationDuration={3000} />
+                  <Area type="monotone" dataKey="safety" stroke="#39ff14" strokeWidth={1} fill="url(#colorSafety)" animationDuration={3500} />
                 </AreaChart>
               </ResponsiveContainer>
             </div>

@@ -56,7 +56,7 @@ export function OverviewPanel() {
                 <div className="w-10 h-10 bg-neon-cyan/20 rounded-xl flex items-center justify-center border border-neon-cyan/30">
                   <Activity size={18} className="text-neon-cyan animate-pulse" />
                 </div>
-                <h3 className="font-display font-black tracking-[0.2em] text-xs text-white uppercase">ATMOSPHERE INTEL</h3>
+                <h3 className="font-display font-black tracking-[0.2em] text-xs text-white uppercase">ATMOS INTEL</h3>
               </div>
               <div className="px-3 py-1 rounded-full bg-neon-red/20 border border-neon-red/40 text-neon-red text-[10px] font-black font-mono animate-pulse">
                 HEATWAVE ALERT
