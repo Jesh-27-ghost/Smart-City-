@@ -2,7 +2,7 @@ import { TopBar } from './components/layout/TopBar'
 import { Sidebar } from './components/layout/Sidebar'
 import { BhopalMap } from './components/map/BhopalMap'
 import { OverviewPanel } from './components/panels/OverviewPanel'
-import { TrafficPanel } from './components/panels/TrafficPanel'
+import { TrafficIntelligencePanel } from './components/panels/TrafficIntelligencePanel'
 import { SafetyPanel } from './components/panels/SafetyPanel'
 import { UtilitiesPanel } from './components/panels/UtilitiesPanel'
 import { PredictiveAIPanel } from './components/panels/PredictiveAIPanel'
@@ -33,7 +33,7 @@ function App() {
           <div className="absolute inset-0 p-6 overflow-hidden pointer-events-none">
             <div className="w-full h-full pointer-events-none">
               {activeSection === 'command-center' && <OverviewPanel />}
-              {activeSection === 'traffic' && <TrafficPanel />}
+              {activeSection === 'traffic' && <TrafficIntelligencePanel />}
               {activeSection === 'safety' && <SafetyPanel />}
               {activeSection === 'utilities' && <UtilitiesPanel />}
               

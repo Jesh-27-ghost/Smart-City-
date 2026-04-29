@@ -48,6 +48,29 @@
 - **Emergency Lockdown Protocol** — One-click facility lockdown with visual alerts
 - **Tactical OCR Stream** — Real-time system log console
 
+### 🚗 Smart Traffic Intelligence System (Advanced)
+- **Google Traffic Integration** — Real-world live traffic layers (Green/Orange/Red) directly on the map
+- **Navigation Pathfinder** — Select "Your Location" and "Where To" to calculate the shortest path with a neon green route
+- **AI Auto-Replan** — Automatic route recalculation if an accident occurs on the active navigation path
+- **Multi-Point AI Rerouting** — Generates multiple alternative bypasses (Orange Lines) for all nearby junctions in an impact zone
+- **Tactical Signal Control** — Force Green signals and dispatch units directly from the node detail drawer
+- **External Map Sync** — One-click export of navigation routes to official Google Maps
+
+### 🏢 Unified City Asset Management
+- **Integrated Digital Twin** — Unified map overlay for Bins, Parking, Power, and Smart Poles
+- **Context-Aware Markers** — Icons dynamically filter based on the active dashboard (e.g., Waste view vs. Traffic view)
+- **Live Asset Telemetry** — Real-time voltage monitoring, fill levels, and parking availability city-wide
+
+### 🤖 Predictive AI & Analytics
+- **Gemini-Powered Chatbot** — Interactive operational AI terminal for city queries
+- **Multispectral Risk Forecast** — Advanced time-series prediction for Traffic, Power, and Safety
+- **Anomaly Detection** — Machine-learning based scoring of urban infrastructure health
+
+### 📦 Asset Grid & Infrastructure
+- **Complete Inventory** — Digital log of all CCTVs, Smart Poles, and IoT nodes
+- **Hardware Diagnostics** — Real-time battery levels, uptime, and telemetry graphs
+- **Grid & List Views** — Optimized for managing thousands of urban assets
+
 ### 🗑️ Smart Waste Management (Smart Bins)
 - **IoT Network Integration** — Mock simulated connection to 47 distributed smart bins across 4 zones
 - **Live Fill Level Monitoring** — 7-day volume trends with critical capacity alerts (>85%)
@@ -63,11 +86,11 @@
 
 ### 📊 Analytics & Intelligence Panels
 - **Overview Panel** — City-wide KPIs and sector health monitoring
-- **Traffic Panel** — Real-time congestion analysis and flow optimization
+- **Traffic Intelligence** — Advanced real-time flow control and AI diversion
 - **Safety Panel** — Incident tracking and emergency response metrics
 - **Utilities Panel** — Water, electricity, and gas infrastructure monitoring
 - **Environmental Panel** — Pollution levels, green coverage, and carbon metrics
-- **Predictive AI Panel** — ML-powered forecasting for urban trends
+- **Predictive AI Dashboard** — ML-powered forecasting and interactive chatbot
 - **Asset Grid Panel** — Infrastructure asset inventory and health tracking
 - **Logistics Panel** — Supply chain and municipal logistics monitoring
 
@@ -85,27 +108,33 @@ bhopal-digital-twin/
 │   │   │   ├── Sidebar.jsx     # Navigation sidebar with sector links
 │   │   │   └── BottomTicker.jsx# Real-time scrolling data ticker
 │   │   ├── map/                # Map components
-│   │   │   ├── BhopalMap.jsx   # Leaflet map container
+│   │   │   ├── BhopalMap.jsx   # Master map container (Hybrid & Satellite)
+│   │   │   ├── TrafficMapOverlay.jsx # 🚗 Traffic layers (Nodes & Corridors)
+│   │   │   ├── UnifiedAssetOverlay.jsx # 🏢 Unified City Asset Markers
 │   │   │   └── MapPin.jsx      # Animated custom map markers
-│   │   ├── panels/             # Feature panels (10 modules)
+│   │   ├── panels/             # Feature panels (11 modules)
 │   │   │   ├── SmartParkingPanel.jsx   # 🅿️ Full parking management system
 │   │   │   ├── WeatherFullPanel.jsx    # 🌦️ Weather intelligence dashboard
 │   │   │   ├── OverviewPanel.jsx       # 📊 City overview KPIs
-│   │   │   ├── TrafficPanel.jsx        # 🚗 Traffic flow analytics
+│   │   │   ├── TrafficIntelligencePanel.jsx # 🚗 Advanced AI traffic control
 │   │   │   ├── SafetyPanel.jsx         # 🛡️ Safety & incident tracking
 │   │   │   ├── UtilitiesPanel.jsx      # ⚡ Utility infrastructure
 │   │   │   ├── EnvironmentalPanel.jsx  # 🌿 Environmental metrics
-│   │   │   ├── PredictiveAIPanel.jsx   # 🤖 AI forecasting
+│   │   │   ├── PredictiveAIPanel.jsx   # 🤖 AI chatbot & forecasting
 │   │   │   ├── SmartBinPanel.jsx       # 🗑️ Smart waste management
-│   │   │   ├── AssetGridPanel.jsx      # 📦 Asset management
+│   │   │   ├── AssetGridPanel.jsx      # 📦 Asset management grid
 │   │   │   └── LogisticsPanel.jsx      # 🚛 Logistics tracking
 │   │   └── ui/                 # Shared UI primitives
 │   │       ├── GlassPanel.jsx  # Glassmorphic card component
+│   │       ├── TrafficToast.jsx# AI routing notifications
 │   │       └── WeatherBackground.jsx   # Dynamic weather animations
 │   ├── store/
-│   │   └── cityStore.js        # Zustand global state (navigation, roles, data)
+│   │   ├── cityStore.js        # Core system state
+│   │   └── trafficStore.js     # 🚗 Traffic intelligence state
+│   ├── hooks/
+│   │   └── useTrafficSimulation.js # Real-time simulation engine
 │   ├── App.jsx                 # Root application component
-│   ├── main.jsx                # React entry point
+│   └── main.jsx                # React entry point
 │   └── index.css               # Global styles & Tailwind config
 ├── .env                        # API keys (OpenWeatherMap)
 ├── package.json
