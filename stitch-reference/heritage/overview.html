@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bhopal Digital Twin - Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#ebb2ff",
+                        "on-surface-variant": "#b9cacb",
+                        "inverse-surface": "#e5e1e4",
+                        "surface-container-high": "#2a2a2c",
+                        "surface-container-low": "#1c1b1d",
+                        "on-primary": "#00363a",
+                        "on-primary-container": "#006a71",
+                        "error": "#ffb4ab",
+                        "surface": "#131315",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#e5e1e4",
+                        "on-background": "#e5e1e4",
+                        "primary-container": "#00f2ff",
+                        "surface-variant": "#353437",
+                        "secondary-fixed": "#f8d8ff",
+                        "background": "#131315",
+                        "on-secondary-fixed": "#320047",
+                        "primary-fixed": "#74f5ff",
+                        "tertiary": "#fff5f5",
+                        "primary": "#e1fdff",
+                        "secondary": "#ebb2ff",
+                        "on-secondary": "#520072",
+                        "surface-dim": "#131315",
+                        "outline-variant": "#3a494b",
+                        "surface-container-highest": "#353437",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#74009f",
+                        "on-tertiary-fixed-variant": "#92001e",
+                        "outline": "#849495",
+                        "secondary-container": "#b600f8",
+                        "primary-fixed-dim": "#00dbe7",
+                        "tertiary-container": "#ffd0ce",
+                        "on-tertiary": "#680012",
+                        "surface-container": "#201f21",
+                        "inverse-on-surface": "#313032",
+                        "on-tertiary-container": "#c2002b",
+                        "on-primary-fixed-variant": "#004f54",
+                        "surface-bright": "#39393b",
+                        "inverse-primary": "#00696f",
+                        "tertiary-fixed": "#ffdad8",
+                        "tertiary-fixed-dim": "#ffb3b2",
+                        "on-secondary-container": "#fff6fc",
+                        "on-tertiary-fixed": "#410008",
+                        "surface-tint": "#00dbe7",
+                        "surface-container-lowest": "#0e0e10",
+                        "error-container": "#93000a",
+                        "on-primary-fixed": "#002022"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "panel-padding": "20px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "gutter": "16px",
+                        "margin": "24px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "label-caps": ["Space Grotesk"],
+                        "body-rt": ["Inter"],
+                        "data-mono": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-rt": ["16px", { "lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "data-mono": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background-color: rgba(19, 19, 21, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 219, 231, 0.25);
+            background-image: 
+                linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 25 L55 30 L35 35 L30 55 L25 35 L5 30 L25 25 Z' fill='none' stroke='rgba(0, 219, 231, 0.06)' stroke-width='1'/%3E%3Ccircle cx='30' cy='30' r='10' fill='none' stroke='rgba(0, 219, 231, 0.04)' stroke-width='1'/%3E%3C/svg%3E");
+            background-blend-mode: overlay;
+            box-shadow: inset 0 0 20px rgba(0, 219, 231, 0.05);
+        }
+        .neon-text {
+            text-shadow: 0 0 12px rgba(0, 219, 231, 0.6);
+        }
+        .neon-border {
+            box-shadow: 0 0 15px rgba(0, 219, 231, 0.3) inset;
+        }
+        .pulse-active {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 219, 231, 0.5); }
+            70% { box-shadow: 0 0 0 12px rgba(0, 219, 231, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 219, 231, 0); }
+        }
+        .cyber-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 5s linear infinite;
+        }
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background h-screen w-screen overflow-hidden flex flex-col font-body-rt text-body-rt">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-slate-950/50 backdrop-blur-xl border-b border-cyan-500/40 shadow-[0_0_25px_rgba(0,242,255,0.08)]">
+<div class="flex items-center gap-4">
+<span class="text-cyan-400 text-xl font-bold tracking-widest uppercase font-['Space_Grotesk'] flex items-center gap-2">
+<span class="material-symbols-outlined text-cyan-300">account_balance</span>
+        BHOPAL METRO-CORE
+    </span>
+</div>
+<div class="flex-1 flex justify-end mr-6">
+<div class="relative w-72">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-cyan-500/50 text-sm">search</span>
+<input class="w-full bg-slate-900/60 border border-cyan-500/40 rounded-DEFAULT py-1.5 pl-9 pr-3 text-sm text-cyan-100 placeholder-cyan-700/50 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-data-mono text-data-mono shadow-[inset_0_0_10px_rgba(0,219,231,0.1)]" placeholder="Search parameters..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="text-cyan-400 hover:bg-cyan-400/10 transition-colors duration-300 p-2 rounded-full relative group">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]"></span>
+</button>
+<button class="text-cyan-400 hover:bg-cyan-400/10 transition-colors duration-300 p-2 rounded-full">
+<span class="material-symbols-outlined text-xl">schedule</span>
+</button>
+<button class="text-cyan-400 hover:bg-cyan-400/10 transition-colors duration-300 p-2 rounded-full">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+</div>
+<div class="h-8 w-8 rounded-full border border-cyan-400 overflow-hidden relative glass-panel shadow-[0_0_10px_rgba(0,219,231,0.3)]">
+<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="close up portrait of a mature male official in a dimly lit high tech command center with blue monitor glow reflecting on his face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPEQ7AI9mAge3m69T8e5Jrzg-QZ6-ydNASE7ZTliv6ZyYpXuE4ChiqeGatgqPZ3oc5TKe9y-C1Bx-ATXw5uNy8ENJLlgpCEgj2XiQjbVimJAFX5n8m8s6Lq-D2SOps6QT4jRCUSfVQiAcLK8DQ0RlRi0J4GOUACl_I6zMO6q2dVLxjZwROmIiii0XesuKmpKfvoT4-VQ936RaMRsjtuL2K3Lkt5jsGggBsh1KB8APdObNs4OjZUr3xs05F8TRwMdXaJkeAmVHJu1Cg"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 pt-16 relative">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-16 h-[calc(100vh-64px)] z-40 flex flex-col py-8 bg-slate-950/70 backdrop-blur-2xl w-64 border-r border-cyan-500/40 shadow-2xl">
+<div class="px-6 mb-8 flex flex-col items-center relative">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M10 0L20 10L10 20L0 10Z\' fill=\'none\' stroke=\'rgba(0,219,231,0.05)\' stroke-width=\'0.5\'/%3E%3C/svg%3E')] opacity-50 z-0"></div>
+<div class="w-16 h-16 rounded-full border-2 border-cyan-400 p-1 mb-3 pulse-active relative z-10 bg-slate-900">
+<img alt="Admin Avatar" class="w-full h-full rounded-full object-cover grayscale opacity-80" data-alt="professional portrait of a female city administrator in a dark futuristic office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9JdgxtHLyHCMcKJVJGsVM6Vn-s4Ryj7q9B9-MrSMgMzCbtqRtsMqYGgNp3tDHzfZBKKfpYhjo6burJpZ3vfY_C48mwrucu-ZC4VIZSiWPuAwavLyYb9Oe9bFyx7j1ygtoWnUcFzBgcjPXgZTHTmI08uMtKXP_Phj1zKJbH-orfp0Ikp3vljFJ8UIbeKRRlsuWnNmghiRHzwg6resWgBKsyKG_XVMy2IWXRPAplV_Anoe-fwYvE-zAT3GO95oNJJMZAsaRBQYhv7p0"/>
+</div>
+<h2 class="text-cyan-400 font-black font-['Space_Grotesk'] tracking-widest text-sm relative z-10">CITY HEALTH</h2>
+<span class="text-slate-500 text-[10px] font-data-mono text-data-mono mt-1 relative z-10">V4.2.0-STABLE</span>
+</div>
+<div class="flex-1 flex flex-col gap-2 w-full relative z-10">
+<a class="flex items-center gap-4 px-4 py-3 bg-cyan-500/15 text-cyan-300 border-l-4 border-cyan-400 font-['Space_Grotesk'] uppercase text-xs font-medium tracking-wider shadow-[inset_0_0_15px_rgba(0,219,231,0.1)]" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-cyan-300 hover:bg-cyan-900/30 transition-all duration-200 hover:translate-x-1 font-['Space_Grotesk'] uppercase text-xs font-medium tracking-wider" href="#">
+<span class="material-symbols-outlined text-lg">traffic</span>
+<span>Traffic</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-cyan-300 hover:bg-cyan-900/30 transition-all duration-200 hover:translate-x-1 font-['Space_Grotesk'] uppercase text-xs font-medium tracking-wider" href="#">
+<span class="material-symbols-outlined text-lg">bolt</span>
+<span>Energy</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-cyan-300 hover:bg-cyan-900/30 transition-all duration-200 hover:translate-x-1 font-['Space_Grotesk'] uppercase text-xs font-medium tracking-wider" href="#">
+<span class="material-symbols-outlined text-lg">delete</span>
+<span>Waste</span>
+</a>
+</div>
+<div class="px-6 mt-auto pb-4 relative z-10">
+<button class="w-full py-3 border border-red-500/50 text-red-400 font-label-caps text-label-caps rounded-DEFAULT hover:bg-red-500/20 transition-colors shadow-[0_0_15px_rgba(239,68,68,0.2)] bg-slate-900/50 backdrop-blur-sm">
+                    SOS SIGNAL
+                </button>
+</div>
+</nav>
+<!-- Main Content Area (Map Background) -->
+<main class="ml-64 flex-1 relative bg-slate-950">
+<!-- Simulated Map Background -->
+<div class="absolute inset-0 z-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2000&amp;q=80')] bg-cover bg-center opacity-25 grayscale contrast-150 mix-blend-luminosity" data-alt="dark high contrast satellite map view of a city with glowing street grids and water bodies at night" data-location="Bhopal"></div>
+<div class="absolute inset-0 z-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-transparent"></div>
+<!-- Cyber Connection Lines -->
+<svg class="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-40">
+<path class="cyber-line" d="M 40% 30% L 20% 60% L 30% 45%" fill="none" stroke="#00dbe7" stroke-dasharray="5 5" stroke-width="1.5"></path>
+<path class="cyber-line" d="M 40% 30% L 70% 45%" fill="none" stroke="#00dbe7" stroke-dasharray="5 5" stroke-width="1.5"></path>
+</svg>
+<!-- Map Markers (Simulated) -->
+<div class="absolute top-[30%] left-[40%] z-10 flex flex-col items-center group">
+<div class="w-4 h-4 bg-cyan-400 rounded-full pulse-active shadow-[0_0_20px_#00dbe7] border-2 border-slate-900"></div>
+<div class="mt-2 px-3 py-1.5 glass-panel text-[10px] font-data-mono text-cyan-100 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity border-cyan-400/50 flex flex-col items-center">
+<span class="font-bold tracking-wider">BADA TALAB NODE</span>
+<span class="text-[8px] text-cyan-300/70 mt-0.5">WATER LEVEL: OPTIMAL</span>
+</div>
+</div>
+<div class="absolute top-[60%] left-[20%] z-10 flex flex-col items-center group">
+<div class="w-3 h-3 bg-emerald-400 rounded-full shadow-[0_0_15px_#34d399] border-2 border-slate-900"></div>
+<div class="mt-2 px-3 py-1.5 glass-panel text-[10px] font-data-mono text-emerald-100 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity border-emerald-400/50 flex flex-col items-center">
+<span class="font-bold tracking-wider">TAJ-UL-MASAJID SECTOR</span>
+<span class="text-[8px] text-emerald-300/70 mt-0.5">TRAFFIC: FLUID</span>
+</div>
+</div>
+<div class="absolute top-[45%] right-[30%] z-10 flex flex-col items-center group">
+<div class="w-3 h-3 bg-amber-400 rounded-full shadow-[0_0_15px_#fbbf24] border-2 border-slate-900"></div>
+<div class="mt-2 px-3 py-1.5 glass-panel text-[10px] font-data-mono text-amber-100 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity border-amber-400/50 flex flex-col items-center">
+<span class="font-bold tracking-wider">BHARAT BHAVAN HUB</span>
+<span class="text-[8px] text-amber-300/70 mt-0.5">ENERGY DRAW: HIGH</span>
+</div>
+</div>
+<!-- Floating UI Overlay -->
+<div class="relative z-20 h-full p-6 flex flex-col pointer-events-none pb-12">
+<!-- Top Metrics Row -->
+<div class="grid grid-cols-3 gap-6 mb-6">
+<div class="glass-panel rounded-lg p-5 pointer-events-auto shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-caps text-cyan-400 tracking-widest">System Health</span>
+<span class="material-symbols-outlined text-cyan-400 text-sm">monitor_heart</span>
+</div>
+<div class="text-display-lg font-display-lg text-cyan-50 neon-text">94%</div>
+<div class="w-full bg-slate-900/80 h-1.5 mt-3 rounded-full overflow-hidden border border-cyan-900/50">
+<div class="bg-gradient-to-r from-cyan-600 to-cyan-400 h-full w-[94%] shadow-[0_0_10px_#00dbe7] relative">
+<div class="absolute top-0 right-0 bottom-0 w-4 bg-white/30 animate-pulse"></div>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-lg p-5 pointer-events-auto border-l-2 border-l-emerald-500 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-caps text-slate-300 tracking-widest">Air Quality Index</span>
+<span class="material-symbols-outlined text-emerald-400 text-sm">air</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-display-lg font-display-lg text-emerald-50 text-shadow-[0_0_15px_rgba(52,211,153,0.4)]">42</span>
+<span class="font-data-mono text-emerald-400 bg-emerald-900/30 px-2 py-0.5 rounded border border-emerald-500/30">GOOD</span>
+</div>
+<div class="mt-3 flex items-center justify-between text-[10px] font-data-mono text-slate-400">
+<span>AQI SENSOR NETWORK</span>
+<span class="text-emerald-400 flex items-center gap-1"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div> ACTIVE</span>
+</div>
+</div>
+<div class="glass-panel rounded-lg p-5 pointer-events-auto border-l-2 border-l-slate-600 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-caps text-slate-300 tracking-widest">Active SOS</span>
+<span class="material-symbols-outlined text-slate-400 text-sm">emergency</span>
+</div>
+<div class="text-display-lg font-display-lg text-slate-300">0</div>
+<div class="mt-3 text-[10px] font-data-mono text-slate-400 border-t border-slate-700/50 pt-2">
+<span class="text-cyan-400">STATUS:</span> ALL ZONES SECURE
+                </div>
+</div>
+</div>
+<!-- Spacer to push bottom cards down -->
+<div class="flex-1"></div>
+<!-- Bottom Cards Row -->
+<div class="grid grid-cols-2 gap-6 pointer-events-auto">
+<!-- Traffic Trend -->
+<div class="glass-panel rounded-lg p-5 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-400 text-sm">directions_car</span>
+<span class="font-label-caps text-slate-200 tracking-widest">Traffic Congestion</span>
+</div>
+<span class="text-[10px] font-data-mono text-amber-400 bg-amber-900/30 px-2 py-1 rounded border border-amber-500/30">+12% vs avg</span>
+</div>
+<div class="h-24 w-full relative flex items-end gap-1.5">
+<!-- Simulated Bar Chart -->
+<div class="w-full bg-cyan-500/20 rounded-t-sm h-[30%] hover:bg-cyan-400/40 transition-colors border-t border-cyan-500/30"></div>
+<div class="w-full bg-cyan-500/20 rounded-t-sm h-[40%] hover:bg-cyan-400/40 transition-colors border-t border-cyan-500/30"></div>
+<div class="w-full bg-cyan-500/20 rounded-t-sm h-[35%] hover:bg-cyan-400/40 transition-colors border-t border-cyan-500/30"></div>
+<div class="w-full bg-cyan-500/20 rounded-t-sm h-[50%] hover:bg-cyan-400/40 transition-colors border-t border-cyan-500/30"></div>
+<div class="w-full bg-cyan-500/20 rounded-t-sm h-[45%] hover:bg-cyan-400/40 transition-colors border-t border-cyan-500/30"></div>
+<div class="w-full bg-gradient-to-t from-amber-500/20 to-amber-500/50 rounded-t-sm h-[70%] hover:from-amber-400/30 hover:to-amber-400/60 transition-colors border-t-2 border-amber-400 shadow-[0_-5px_15px_rgba(251,191,36,0.25)] relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-slate-800 text-[8px] text-amber-100 px-1.5 py-0.5 rounded border border-amber-500/50">PEAK</div>
+</div>
+<div class="w-full bg-cyan-500/20 rounded-t-sm h-[60%] hover:bg-cyan-400/40 transition-colors border-t border-cyan-500/30"></div>
+</div>
+<div class="flex justify-between mt-3 text-[8px] font-data-mono text-slate-400 border-t border-slate-700/50 pt-2">
+<span>06:00</span>
+<span>12:00</span>
+<span>18:00</span>
+</div>
+</div>
+<!-- Energy Trend -->
+<div class="glass-panel rounded-lg p-5 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-cyan-400 text-sm">electric_bolt</span>
+<span class="font-label-caps text-slate-200 tracking-widest">Grid Load Status</span>
+</div>
+<span class="text-[10px] font-data-mono text-cyan-300 bg-cyan-900/30 px-2 py-1 rounded border border-cyan-500/30">68% Capacity</span>
+</div>
+<div class="h-24 w-full relative">
+<!-- Simulated Line Chart -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path class="drop-shadow-[0_0_8px_rgba(0,219,231,0.6)]" d="M0,80 Q20,75 40,50 T80,45 T100,20" fill="none" stroke="#00dbe7" stroke-width="2.5"></path>
+<path d="M0,100 L0,80 Q20,75 40,50 T80,45 T100,20 L100,100 Z" fill="url(#grid-gradient)" opacity="0.4"></path>
+<circle cx="100" cy="20" fill="#fff" r="2" stroke="#00dbe7" stroke-width="1"></circle>
+<defs>
+<lineargradient id="grid-gradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#00dbe7" stop-opacity="0.9"></stop>
+<stop offset="100%" stop-color="#00dbe7" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+<div class="flex justify-between mt-3 text-[8px] font-data-mono text-slate-400 border-t border-slate-700/50 pt-2">
+<span>BADA TALAB</span>
+<span>TAJ-UL-MASAJID</span>
+<span>BHARAT BHAVAN</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="fixed bottom-0 w-full z-50 h-8 flex items-center overflow-hidden whitespace-nowrap px-4 bg-slate-950/90 backdrop-blur-md border-t border-cyan-500/40 shadow-[0_-5px_20px_rgba(0,242,255,0.15)]">
+<div class="flex items-center w-full">
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-[0.2em] text-cyan-400 mr-8 shrink-0 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        LIVE FEED: Bada Talab Sector Optimized • AQI: 42 (Stable) • Grid Load: 68% • Emergency Services: Standby
+    </span>
+<div class="flex-1 flex justify-end gap-6">
+<a class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-[0.2em] text-cyan-600 hover:text-cyan-300 transition-colors" href="#">Protocol-X</a>
+<a class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-[0.2em] text-cyan-600 hover:text-cyan-300 transition-colors" href="#">System-Logs</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bhopal Digital Twin - Traffic Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#ebb2ff",
+                        "on-surface-variant": "#b9cacb",
+                        "inverse-surface": "#e5e1e4",
+                        "surface-container-high": "#2a2a2c",
+                        "surface-container-low": "#1c1b1d",
+                        "on-primary": "#00363a",
+                        "on-primary-container": "#006a71",
+                        "error": "#ffb4ab",
+                        "surface": "#131315",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#e5e1e4",
+                        "on-background": "#e5e1e4",
+                        "primary-container": "#00f2ff",
+                        "surface-variant": "#353437",
+                        "secondary-fixed": "#f8d8ff",
+                        "background": "#131315",
+                        "on-secondary-fixed": "#320047",
+                        "primary-fixed": "#74f5ff",
+                        "tertiary": "#fff5f5",
+                        "primary": "#e1fdff",
+                        "secondary": "#ebb2ff",
+                        "on-secondary": "#520072",
+                        "surface-dim": "#131315",
+                        "outline-variant": "#3a494b",
+                        "surface-container-highest": "#353437",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#74009f",
+                        "on-tertiary-fixed-variant": "#92001e",
+                        "outline": "#849495",
+                        "secondary-container": "#b600f8",
+                        "primary-fixed-dim": "#00dbe7",
+                        "tertiary-container": "#ffd0ce",
+                        "on-tertiary": "#680012",
+                        "surface-container": "#201f21",
+                        "inverse-on-surface": "#313032",
+                        "on-tertiary-container": "#c2002b",
+                        "on-primary-fixed-variant": "#004f54",
+                        "surface-bright": "#39393b",
+                        "inverse-primary": "#00696f",
+                        "tertiary-fixed": "#ffdad8",
+                        "tertiary-fixed-dim": "#ffb3b2",
+                        "on-secondary-container": "#fff6fc",
+                        "on-tertiary-fixed": "#410008",
+                        "surface-tint": "#00dbe7",
+                        "surface-container-lowest": "#0e0e10",
+                        "error-container": "#93000a",
+                        "on-primary-fixed": "#002022"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "panel-padding": "20px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "gutter": "16px",
+                        "margin": "24px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "label-caps": ["Space Grotesk"],
+                        "body-rt": ["Inter"],
+                        "data-mono": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-rt": ["16px", { "lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "data-mono": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>.cyber-grid {
+    background-image: linear-gradient(to right, rgba(0, 242, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px
+    }
+.neon-line {
+    filter: drop-shadow(0 0 8px rgba(0, 219, 231, 0.8))
+    }
+.glass-panel {
+    background: rgba(0, 50, 50, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    background-image: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%)
+    }
+.map-container {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCfH0sPQ58Djvi3oUI7kwS10-d1g4aMNPTrPygV_oahecMQ6SnBgtue7L2bvOMjXS2eBEH5nC4cRx40cDBOEP3Z4riJ5QJZDgNU58t2dLiHiFcD8QmE0GH0jSSPcISyHI_Qn79QZXymkioVpaCmWvdsGJHzBBoSz74zT_ORPMlG830JQpa1Z8s_tpF_LRsOn75j2LEKl_-RnJTrZUhi23Hrb0yPvjgmXzLiXC1fP0ufH0uQbcnL3mh7EqsDvl1A8k3RXrGH-g8JCC7d);
+    background-size: cover;
+    background-position: center;
+    position: relative
+    }
+.map-overlay {
+    background: rgba(0, 30, 30, 0.85);
+    position: absolute;
+    inset: 0;
+    z-index: 0
+    }
+.ornate-card {
+    position: relative;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    background: rgba(0, 40, 40, 0.8);
+}
+.ornate-card::before, .ornate-card::after {
+    content: '❖';
+    position: absolute;
+    color: rgba(255, 215, 0, 0.6);
+    font-size: 14px;
+}
+.ornate-card::before { top: 4px; left: 4px; }
+.ornate-card::after { bottom: 4px; right: 4px; }
+</style>
+</head>
+<body class="bg-teal-950 text-on-background min-h-screen font-body-rt flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-16 h-[calc(100vh-64px)] z-40 flex flex-col py-8 bg-teal-950/80 backdrop-blur-2xl docked left-0 h-full w-64 border-r border-amber-500/30 shadow-2xl hidden md:flex">
+<div class="px-6 mb-8 flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<img alt="Admin Avatar" class="w-10 h-10 rounded-full border border-amber-400" data-alt="Portrait of an administrator, professional lighting, dark background, cyberpunk aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV2ckNlVBUx3GBD3g4G3ex-ccCxPCn5-tVhtFFzYgF2YF6wZdYTFXSIiJ4cPeZEUPn9bra2S4LkR6_hmnjeG-1FwZWb1RZnggSLZ1584oJXeHN_0Bol8yTBn0OkwzBmbwsj249syavHw8ppWTVFU61MF6tfIFBU__b4K3HzU4AHwZR_0PY9B9E_3CktaL8OPkT02HsM6XCLXXVghfPEAGRvSslv3AZmM5j5sl8XZVQk7SOAJC703zd7lZ_v6pTBuWM5qkkVM2_VCOX"/>
+<div>
+<h2 class="text-amber-400 font-black font-['Space_Grotesk'] uppercase text-xs font-medium tracking-wider">CITY HEALTH</h2>
+<p class="text-on-surface-variant font-label-caps text-label-caps">V4.2.0-STABLE</p>
+</div>
+</div>
+<button class="mt-4 px-4 py-2 border border-error text-error font-label-caps text-label-caps rounded flex items-center justify-center gap-2 hover:bg-error/10 transition-colors shadow-[0_0_10px_rgba(255,180,171,0.2)]">
+<span class="material-symbols-outlined text-[16px]">warning</span> SOS SIGNAL
+            </button>
+</div>
+<ul class="flex flex-col gap-unit flex-1 px-2 font-['Space_Grotesk'] uppercase text-xs font-medium tracking-wider">
+<li>
+<a class="flex items-center gap-4 px-4 py-3 text-amber-200/60 hover:text-amber-400 hover:bg-teal-900/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Overview</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-4 py-3 bg-amber-400/10 text-amber-400 border-l-4 border-amber-400 translate-x-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">traffic</span>
+<span>Traffic</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-4 py-3 text-amber-200/60 hover:text-amber-400 hover:bg-teal-900/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">bolt</span>
+<span>Energy</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-4 py-3 text-amber-200/60 hover:text-amber-400 hover:bg-teal-900/50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">delete</span>
+<span>Waste</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-teal-950/60 backdrop-blur-xl docked full-width top-0 border-b border-amber-500/30 shadow-[0_0_20px_rgba(255,215,0,0.05)]">
+<div class="flex-1 flex items-center gap-4 md:ml-64">
+<div class="text-xl font-bold tracking-widest text-amber-400 uppercase font-headline-md text-headline-md flex items-center gap-2">
+<span class="material-symbols-outlined">account_balance</span>
+    BHOPAL METRO-CORE
+</div>
+</div>
+<div class="flex items-center gap-4 justify-end flex-1">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-amber-200/60">search</span>
+<input class="bg-teal-900/50 border border-amber-500/30 rounded-full py-1.5 pl-4 pr-10 text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 text-amber-100 font-data-mono text-data-mono w-48 transition-all" placeholder="Search entity..." type="text"/>
+</div>
+<div class="flex items-center gap-2 text-amber-400">
+<button class="p-2 hover:bg-amber-400/10 transition-colors duration-300 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-amber-400/10 transition-colors duration-300 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">schedule</span>
+</button>
+<button class="p-2 hover:bg-amber-400/10 transition-colors duration-300 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<img alt="Administrator Profile" class="w-8 h-8 rounded-full border border-amber-500/50 hidden sm:block" data-alt="Portrait of an administrator, professional lighting, dark background, cyberpunk aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfflkk7PJCMZgpcRkW3tudltiHBd7joow8obZH9GI6UYZ95ZiAgfbhiLnHAP1A8qyr8rJ-mhmdIhGOiyZMqjMUHznwSNnqCZQ-cZ6K5t-JoG1eJszfGnIKxYPrsyGgYnXGXQCtkRWioiyX8R1g4WRif_lt7O5061z4Vic8tx3IJlZLOg8rq8MwqjuEZ9otVhyt0bMsGOCU3_CHGDWwJkMTptWImpNrDIVpFSxsrsw_UlCQ56Av3WVKNgp7FO2wL347RE-KGrnDrC7a"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 pt-16 md:pl-64 h-screen relative map-container cyber-grid overflow-hidden flex flex-col" data-location="Bhopal, India">
+<div class="map-overlay"></div>
+<!-- 3D Map Simulation Elements -->
+<div class="absolute inset-0 z-10 pointer-events-none">
+<!-- Board Office Square Node -->
+<div class="absolute top-[40%] left-[30%]">
+<div class="relative">
+<div class="w-32 h-32 bg-error/20 rounded-full blur-xl absolute -inset-16 animate-pulse"></div>
+<div class="relative z-10 text-error drop-shadow-[0_0_15px_rgba(255,180,171,0.8)] flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-size: 32px;">account_balance</span>
+</div>
+<div class="absolute top-8 -left-8 bg-teal-950/90 border border-error/50 px-3 py-1 rounded backdrop-blur-md whitespace-nowrap">
+<p class="font-label-caps text-label-caps text-error">BOARD OFFICE SQ</p>
+<p class="font-data-mono text-data-mono text-amber-100 text-[10px]">CONGESTION: 94%</p>
+</div>
+</div>
+</div>
+<!-- Chetak Bridge Node -->
+<div class="absolute top-[60%] left-[55%]">
+<div class="relative">
+<div class="w-24 h-24 bg-primary-fixed-dim/20 rounded-full blur-xl absolute -inset-12"></div>
+<div class="relative z-10 text-primary-fixed-dim drop-shadow-[0_0_15px_rgba(0,219,231,0.8)] flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-size: 32px;">architecture</span>
+</div>
+<div class="absolute top-8 -left-6 bg-teal-950/90 border border-primary-fixed-dim/30 px-3 py-1 rounded backdrop-blur-md whitespace-nowrap">
+<p class="font-label-caps text-label-caps text-primary-fixed-dim">CHETAK BRIDGE</p>
+<p class="font-data-mono text-data-mono text-amber-100 text-[10px]">FLOW: OPTIMAL</p>
+</div>
+</div>
+</div>
+<!-- Glowing Arteries -->
+<svg class="absolute inset-0 w-full h-full" style="z-index: 1;">
+<path class="neon-line animate-[dash_2s_linear_infinite]" d="M 30% 40% Q 40% 50% 55% 60%" fill="none" stroke="rgba(255,180,171,0.6)" stroke-dasharray="10 5" stroke-width="3"></path>
+<path d="M 10% 20% L 30% 40%" fill="none" stroke="rgba(255,215,0,0.4)" stroke-width="2"></path>
+<path d="M 55% 60% L 80% 80%" fill="none" stroke="rgba(255,215,0,0.4)" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Floating Intelligence Panel (Right) -->
+<div class="absolute right-6 top-24 bottom-20 w-80 z-20 flex flex-col gap-gutter">
+<!-- Global Metrics Card -->
+<div class="glass-panel rounded-xl p-panel-padding flex flex-col gap-stack-md">
+<div class="flex justify-between items-center border-b border-amber-500/30 pb-2">
+<h3 class="font-label-caps text-label-caps text-amber-200 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">speed</span>
+                        NETWORK METRICS
+                    </h3>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+<span class="font-data-mono text-[10px] text-amber-400">LIVE</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="font-label-caps text-[10px] text-amber-200/70 mb-1">AVG SPEED</p>
+<p class="font-display-lg text-display-lg text-amber-400">32<span class="text-sm font-body-rt text-amber-200/70 ml-1">km/h</span></p>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-amber-200/70 mb-1">ACTIVE VEHICLES</p>
+<p class="font-data-mono text-headline-md text-amber-100">14,204</p>
+</div>
+</div>
+</div>
+<!-- Congestion Zones -->
+<div class="glass-panel rounded-xl p-panel-padding flex-1 flex flex-col gap-stack-md overflow-hidden">
+<h3 class="font-label-caps text-label-caps text-amber-200 flex items-center gap-2 border-b border-amber-500/30 pb-2">
+<span class="material-symbols-outlined text-[16px] text-error">warning</span>
+                    ACTIVE CONGESTION ZONES
+                </h3>
+<div class="flex flex-col gap-4 overflow-y-auto pr-2 scrollbar-thin pb-2">
+<div class="ornate-card p-4 rounded shadow-lg">
+<div class="flex justify-between items-start mb-1 px-2">
+<p class="font-data-mono text-data-mono text-amber-100 font-bold">Board Office Square</p>
+<span class="bg-error/20 text-error border border-error/50 font-label-caps text-[9px] px-1.5 py-0.5 rounded">SEVERE</span>
+</div>
+<p class="font-body-rt text-xs text-amber-200/70 px-2">Delay: +14 mins • Accident Reported</p>
+</div>
+<div class="ornate-card p-4 rounded shadow-lg">
+<div class="flex justify-between items-start mb-1 px-2">
+<p class="font-data-mono text-data-mono text-amber-100 font-bold">Habibganj Naka</p>
+<span class="bg-amber-400/20 text-amber-400 border border-amber-400/50 font-label-caps text-[9px] px-1.5 py-0.5 rounded">MODERATE</span>
+</div>
+<p class="font-body-rt text-xs text-amber-200/70 px-2">Delay: +6 mins • Heavy Volume</p>
+</div>
+</div>
+</div>
+<!-- Signal Sync Status & Chart -->
+<div class="glass-panel rounded-xl p-panel-padding flex flex-col gap-stack-sm h-64">
+<div class="flex justify-between items-center mb-2">
+<h3 class="font-label-caps text-label-caps text-amber-200">SIGNAL SYNC</h3>
+<p class="font-data-mono text-data-mono text-amber-400">88% OPTIMIZED</p>
+</div>
+<!-- Cyber Chart Mockup -->
+<div class="relative flex-1 bg-teal-900/40 rounded border border-amber-500/30 p-2 overflow-hidden">
+<div class="absolute inset-0 flex items-end opacity-20">
+<div class="w-full h-full bg-gradient-to-t from-amber-400 to-transparent"></div>
+</div>
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<!-- Grid Lines -->
+<line stroke="rgba(255,215,0,0.1)" stroke-width="0.5" x1="0" x2="100" y1="25" y2="25"></line>
+<line stroke="rgba(255,215,0,0.1)" stroke-width="0.5" x1="0" x2="100" y1="50" y2="50"></line>
+<line stroke="rgba(255,215,0,0.1)" stroke-width="0.5" x1="0" x2="100" y1="75" y2="75"></line>
+<!-- Data Line -->
+<path class="neon-line" d="M0 60 Q 15 40 30 50 T 60 70 T 80 40 T 100 30" fill="none" stroke="#ffd700" stroke-width="2"></path>
+</svg>
+<div class="absolute bottom-1 right-2 font-data-mono text-[9px] text-amber-200/60">FLOW RATE (PAST 6H)</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 w-full z-50 h-8 flex items-center overflow-hidden whitespace-nowrap px-4 bg-teal-950/90 backdrop-blur-md docked full-width bottom-0 border-t border-amber-500/40 shadow-[0_-4px_15px_rgba(255,215,0,0.1)]">
+<div class="flex-1 text-amber-400 font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-[0.2em] marquee-container">
+<span>LIVE FEED: Zone-1 Traffic Optimized • AQI: 42 (Stable) • Grid Load: 68% • Emergency Services: Standby</span>
+</div>
+<div class="flex items-center gap-4 hidden sm:flex font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-[0.2em]">
+<a class="text-amber-200/60 hover:text-error transition-colors" href="#">Protocol-X</a>
+<a class="text-amber-200/60 hover:text-error transition-colors" href="#">System-Logs</a>
+</div>
+</footer>
+</body></html>
