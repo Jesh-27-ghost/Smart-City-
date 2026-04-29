@@ -68,7 +68,7 @@ export function AssetGridPanel() {
       className="w-full h-full flex flex-col gap-6 pointer-events-auto overflow-y-auto custom-scrollbar pb-32 p-4"
     >
       {/* HEADER */}
-      <GlassPanel className="p-6 border-white/10 bg-slate-950/60 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 rounded-[2rem] overflow-hidden relative">
+      <GlassPanel className="p-6 border-white/10 bg-slate-950/60 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 rounded-[2rem] overflow-hidden relative shrink-0">
         <div className="absolute inset-0 bg-gradient-to-r from-neon-purple/5 to-transparent pointer-events-none"></div>
         <div className="flex items-center gap-4 relative z-10">
           <div className="w-14 h-14 bg-neon-purple/10 rounded-2xl flex items-center justify-center border border-neon-purple/30 shadow-[0_0_20px_rgba(117,81,255,0.2)]">
@@ -96,7 +96,7 @@ export function AssetGridPanel() {
       </GlassPanel>
 
       {/* KPI GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 shrink-0">
         {[
           { label: 'Total Assets', value: '18,694', sub: 'Deployed Nodes', icon: Grid, color: 'text-white' },
           { label: 'Operational Uptime', value: '99.8%', sub: 'System Health', icon: CheckCircle2, color: 'text-neon-green' },
@@ -116,7 +116,7 @@ export function AssetGridPanel() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 flex-1 min-h-[600px] shrink-0">
         {/* ASSET INVENTORY (2/3 width) */}
         <GlassPanel className="p-0 border-white/5 rounded-[2.5rem] bg-slate-950/40 col-span-1 lg:col-span-2 overflow-hidden flex flex-col">
           <div className="px-8 py-6 border-b border-white/5 flex items-center justify-between bg-black/20">
@@ -223,10 +223,10 @@ export function AssetGridPanel() {
         {/* SIDEBAR ANALYTICS (1/3 width) */}
         <div className="col-span-1 flex flex-col gap-6">
           <GlassPanel className="p-6 border-white/5 rounded-[2rem] bg-slate-950/40">
-            <h3 className="text-[10px] font-mono font-black text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+            <h3 className="text-[10px] font-mono font-black text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2 shrink-0">
               <Activity size={14} className="text-neon-purple" /> Network Load vs Efficiency
             </h3>
-            <div className="h-48">
+            <div className="h-48 shrink-0">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={PERFORMANCE_DATA}>
                   <defs>

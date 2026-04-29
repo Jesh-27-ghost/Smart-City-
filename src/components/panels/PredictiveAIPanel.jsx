@@ -73,7 +73,7 @@ export function PredictiveAIPanel() {
       className="w-full h-full flex flex-col gap-6 pointer-events-auto overflow-y-auto custom-scrollbar pb-32 p-4"
     >
       {/* HEADER */}
-      <GlassPanel className="p-6 border-white/10 bg-slate-950/60 shadow-2xl flex items-center justify-between gap-6 rounded-[2rem] relative overflow-hidden">
+      <GlassPanel className="p-6 border-white/10 bg-slate-950/60 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 rounded-[2rem] relative overflow-hidden shrink-0">
         <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/5 to-transparent pointer-events-none"></div>
         <div className="flex items-center gap-4 relative z-10">
           <div className="w-14 h-14 bg-neon-cyan/10 rounded-2xl flex items-center justify-center border border-neon-cyan/30 shadow-[0_0_20px_rgba(0,245,255,0.2)]">
@@ -102,11 +102,11 @@ export function PredictiveAIPanel() {
         </div>
       </GlassPanel>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-[600px]">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 min-h-[600px] flex-1 shrink-0">
         {/* LEFT COLUMN: CHARTS & DATA (2/3) */}
         <div className="col-span-1 lg:col-span-2 flex flex-col gap-6">
-          <GlassPanel className="p-6 border-white/5 rounded-[2rem] bg-slate-950/40 h-1/2 flex flex-col">
-            <div className="flex justify-between items-center mb-6">
+          <GlassPanel className="p-6 border-white/5 rounded-[2rem] bg-slate-950/40 flex-1 flex flex-col min-h-[300px]">
+            <div className="flex justify-between items-center mb-6 shrink-0">
               <h3 className="font-display font-bold tracking-widest text-[10px] text-slate-200 uppercase flex items-center gap-2">
                 <Activity size={14} className="text-neon-cyan" /> Multispectral Risk Forecast
               </h3>
@@ -116,9 +116,9 @@ export function PredictiveAIPanel() {
                 <span className="flex items-center gap-1 text-neon-purple"><div className="w-2 h-2 bg-neon-purple rounded-full"></div> Power</span>
               </div>
             </div>
-            <div className="flex-1 w-full">
+            <div className="flex-1 w-full min-h-[200px]">
               <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={FORECAST_DATA}>
+                <AreaChart data={FORECAST_DATA} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                   <defs>
                     <linearGradient id="colorRisk" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor="#00f5ff" stopOpacity={0.3}/>
@@ -148,8 +148,8 @@ export function PredictiveAIPanel() {
             </div>
           </GlassPanel>
 
-          <GlassPanel className="p-6 border-white/5 rounded-[2rem] bg-slate-950/40 h-1/2 flex flex-col">
-            <h3 className="font-display font-bold tracking-widest text-[10px] text-slate-200 uppercase mb-4 flex items-center gap-2">
+          <GlassPanel className="p-6 border-white/5 rounded-[2rem] bg-slate-950/40 flex-1 flex flex-col min-h-[300px]">
+            <h3 className="font-display font-bold tracking-widest text-[10px] text-slate-200 uppercase mb-4 flex items-center gap-2 shrink-0">
               <ShieldAlert size={14} className="text-neon-red" /> Detected Anomalies
             </h3>
             <div className="flex-1 overflow-y-auto custom-scrollbar pr-2 space-y-3">
@@ -177,10 +177,10 @@ export function PredictiveAIPanel() {
         </div>
 
         {/* RIGHT COLUMN: CHATBOT (1/3) */}
-        <GlassPanel className="p-0 border-white/10 rounded-[2rem] bg-slate-950/60 shadow-2xl col-span-1 flex flex-col overflow-hidden relative">
+        <GlassPanel className="p-0 border-white/10 rounded-[2rem] bg-slate-950/60 shadow-2xl col-span-1 flex flex-col overflow-hidden relative min-h-[600px]">
           <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-neon-cyan/10 to-transparent pointer-events-none"></div>
           
-          <div className="p-5 border-b border-white/10 flex items-center gap-3 bg-black/20 z-10">
+          <div className="p-5 border-b border-white/10 flex items-center gap-3 bg-black/20 z-10 shrink-0">
             <div className="relative">
               <div className="w-10 h-10 rounded-full bg-neon-cyan/20 flex items-center justify-center border border-neon-cyan/50">
                 <Bot className="text-neon-cyan w-5 h-5" />
