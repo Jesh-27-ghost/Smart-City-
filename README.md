@@ -46,6 +46,13 @@
 - **Emergency Lockdown Protocol** — One-click facility lockdown with visual alerts
 - **Tactical OCR Stream** — Real-time system log console
 
+### 🗑️ Smart Waste Management (Smart Bins)
+- **IoT Network Integration** — Mock simulated connection to 47 distributed smart bins across 4 zones
+- **Live Fill Level Monitoring** — 7-day volume trends with critical capacity alerts (>85%)
+- **Zone Distribution Analytics** — Visual mapping of waste distribution across city sectors
+- **Fleet Dispatch System** — Live tracking of waste collection trucks with Active/Delayed routing status
+- **Waste Composition Tracking** — Metrics on organic, plastic, paper, and metal segregation
+
 ### 🌦️ Atmosphere AI (Weather Intelligence)
 - Live weather data integration via OpenWeatherMap API
 - Dynamic animated weather backgrounds (rain, clouds, sun, snow, thunderstorm)
@@ -87,6 +94,7 @@ bhopal-digital-twin/
 │   │   │   ├── UtilitiesPanel.jsx      # ⚡ Utility infrastructure
 │   │   │   ├── EnvironmentalPanel.jsx  # 🌿 Environmental metrics
 │   │   │   ├── PredictiveAIPanel.jsx   # 🤖 AI forecasting
+│   │   │   ├── SmartBinPanel.jsx       # 🗑️ Smart waste management
 │   │   │   ├── AssetGridPanel.jsx      # 📦 Asset management
 │   │   │   └── LogisticsPanel.jsx      # 🚛 Logistics tracking
 │   │   └── ui/                 # Shared UI primitives

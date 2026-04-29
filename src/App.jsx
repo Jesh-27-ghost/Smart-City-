@@ -11,6 +11,7 @@ import { EnvironmentalPanel } from './components/panels/EnvironmentalPanel'
 import { LogisticsPanel } from './components/panels/LogisticsPanel'
 import { WeatherFullPanel } from './components/panels/WeatherFullPanel'
 import { SmartParkingPanel } from './components/panels/SmartParkingPanel'
+import SmartBinPanel from './components/panels/SmartBinPanel'
 import { useCityStore } from './store/cityStore'
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
               {activeSection === 'weather' && <WeatherFullPanel />}
               {activeSection === 'parking' && <SmartParkingPanel />}
               {activeSection === 'logistics' && <LogisticsPanel />}
+              {activeSection === 'smart-bins' && <SmartBinPanel />}
             </div>
           </div>
         </main>

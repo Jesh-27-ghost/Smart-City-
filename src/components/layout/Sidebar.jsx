@@ -12,7 +12,8 @@ import {
   ChevronRight,
   Database,
   BarChart3,
-  Network
+  Network,
+  Trash2
 } from 'lucide-react'
 import { useCityStore } from '../../store/cityStore'
 
@@ -24,6 +25,7 @@ const navItems = [
   { id: 'weather', label: 'Atmosphere AI', icon: Zap, category: 'Analysis' },
   { id: 'logistics', label: 'Logistics', icon: Truck, category: 'Execution' },
   { id: 'parking', label: 'Smart Parking', icon: Car, category: 'Execution' },
+  { id: 'smart-bins', label: 'Smart Bins', icon: Trash2, category: 'Execution' },
 ]
 
 export function Sidebar() {
