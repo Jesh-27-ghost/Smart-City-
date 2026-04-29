@@ -38,6 +38,8 @@
 - **Slot Allocation Grid** — Color-coded (Free / Busy / Reserved) visual allocator
 - **Standard Pricing Card** — Hourly rate, pre-booking fee, grace period display
 - **Regional Parking Explorer** — Multi-state, multi-city parking lot browser (Bhopal, Indore, Mumbai)
+- **Google Maps Integration** — Direct navigation links to parking lot coordinates
+- **Gemini AI Oversight** — AI-powered system monitoring and live data analysis
 - **Financial Hub** — Transaction history with UPI/Card payment tracking
 - **Revenue Analytics** — Weekly performance charts with area graphs
 - **Worker Performance** — Staff ratings and customer feedback tracking

@@ -54,20 +54,20 @@ const RECENT_ACTIVITY = [
 const INDIA_PARKING_DATA = {
   'Madhya Pradesh': {
     'Bhopal': [
-      { name: 'DB Mall Arera Hills', distance: '0.6 km', available: 35, total: 150 },
-      { name: 'MP Nagar Zone-1 Multi-level', distance: '1.2 km', available: 10, total: 40 },
-      { name: 'Habibganj Station (RKMP)', distance: '4.2 km', available: 50, total: 250 },
-      { name: 'New Market Multilevel', distance: '3.2 km', available: 80, total: 300 },
+      { name: 'DB Mall Arera Hills', distance: '0.6 km', available: 35, total: 150, mapLink: 'https://maps.google.com/?q=DB+Mall+Arera+Hills+Bhopal' },
+      { name: 'MP Nagar Zone-1 Multi-level', distance: '1.2 km', available: 10, total: 40, mapLink: 'https://maps.google.com/?q=MP+Nagar+Zone-1+Multi-level+Parking+Bhopal' },
+      { name: 'Habibganj Station (RKMP)', distance: '4.2 km', available: 50, total: 250, mapLink: 'https://maps.google.com/?q=Rani+Kamalapati+Railway+Station+Parking+Bhopal' },
+      { name: 'New Market Multilevel', distance: '3.2 km', available: 80, total: 300, mapLink: 'https://maps.google.com/?q=New+Market+Multilevel+Parking+Bhopal' },
     ],
     'Indore': [
-      { name: 'TI Mall MG Road', distance: '2.1 km', available: 85, total: 300 },
-      { name: 'Vijay Nagar C21 Square', distance: '3.8 km', available: 120, total: 400 },
+      { name: 'TI Mall MG Road', distance: '2.1 km', available: 85, total: 300, mapLink: 'https://maps.google.com/?q=Treasure+Island+Mall+Indore' },
+      { name: 'Vijay Nagar C21 Square', distance: '3.8 km', available: 120, total: 400, mapLink: 'https://maps.google.com/?q=C21+Mall+Vijay+Nagar+Indore' },
     ]
   },
   'Maharashtra': {
     'Mumbai': [
-      { name: 'Gateway of India Parking', distance: '0.5 km', available: 12, total: 50 },
-      { name: 'Phoenix Marketcity Kurla', distance: '5.2 km', available: 156, total: 500 },
+      { name: 'Gateway of India Parking', distance: '0.5 km', available: 12, total: 50, mapLink: 'https://maps.google.com/?q=Gateway+of+India+Parking+Mumbai' },
+      { name: 'Phoenix Marketcity Kurla', distance: '5.2 km', available: 156, total: 500, mapLink: 'https://maps.google.com/?q=Phoenix+Marketcity+Kurla+Mumbai' },
     ]
   }
 };
@@ -167,8 +167,12 @@ export function SmartParkingPanel() {
               <Car className="text-neon-cyan w-6 h-6" />
             </div>
             <div>
-              <h1 className="text-2xl font-display font-black text-white tracking-tighter uppercase leading-none">
+              <h1 className="text-2xl font-display font-black text-white tracking-tighter uppercase leading-none flex items-center gap-3">
                 SMART <span className="text-neon-cyan">PARKING</span>
+                <div className="flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 px-3 py-1 rounded-full text-indigo-400">
+                  <div className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></div>
+                  <span className="text-[8px] font-mono font-black tracking-widest uppercase">Gemini AI Oversight Active</span>
+                </div>
               </h1>
               <p className="text-slate-500 font-mono text-[8px] uppercase font-black tracking-[0.2em] mt-2">Nexus Hub :: BH-PK-01 :: {userRole.toUpperCase()}</p>
             </div>
@@ -317,7 +321,19 @@ export function SmartParkingPanel() {
                               <p className="text-[8px] font-mono text-slate-500 uppercase font-black tracking-widest mb-1">AVAILABILITY</p>
                               <p className={`text-sm font-black ${park.available > 50 ? 'text-neon-green' : 'text-neon-yellow'}`}>{park.available} FREE</p>
                             </div>
-                            <ChevronRight size={16} className={selectedParking?.name === park.name ? 'text-neon-cyan' : 'text-slate-700'} />
+                            <div className="flex flex-col gap-2 items-center">
+                              <a 
+                                href={park.mapLink} 
+                                target="_blank" 
+                                rel="noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="w-8 h-8 rounded-full bg-white/5 hover:bg-neon-cyan/20 flex items-center justify-center transition-colors border border-white/10 hover:border-neon-cyan/50 text-slate-400 hover:text-neon-cyan"
+                                title="Open in Google Maps"
+                              >
+                                <Navigation size={14} />
+                              </a>
+                              <ChevronRight size={16} className={selectedParking?.name === park.name ? 'text-neon-cyan' : 'text-slate-700'} />
+                            </div>
                           </div>
                         </motion.div>
                       ))}
