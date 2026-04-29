@@ -1,5 +1,3 @@
-<![CDATA[<div align="center">
-
 # 🏙️ Bhopal Digital Twin — Smart City Command Center
 
 ### An AI-Powered Urban Intelligence Dashboard for Real-Time City Monitoring
@@ -14,8 +12,6 @@
 ---
 
 **Bhopal Digital Twin** is a premium, glassmorphic command center dashboard that provides a real-time digital replica of Bhopal's urban infrastructure. Built for Smart City administrators and citizens, it covers traffic intelligence, weather monitoring, smart parking management, environmental analytics, predictive AI, and more — all in a cinematic, dark-mode interface.
-
-</div>
 
 ---
 
@@ -254,11 +250,6 @@ This project is built for educational and demonstration purposes as part of the 
 
 ---
 
-<div align="center">
-
 **Built with ❤️ for smarter cities**
 
 *Bhopal Digital Twin — Where Urban Intelligence Meets Design Excellence*
-
-</div>
-]]>
