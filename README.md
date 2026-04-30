@@ -62,7 +62,8 @@
 - **Live Asset Telemetry** — Real-time voltage monitoring, fill levels, and parking availability city-wide
 
 ### 🤖 Predictive AI Core
-- **Gemini-Powered Chatbot** — Interactive operational AI terminal for real-time city queries
+- **Gemini-Powered Chatbot** — Interactive operational AI terminal with "Area Intelligence" for real-time city queries
+- **District-Level Knowledge** — Deep context for MP Nagar, Arera Colony, New Market, Kolar, and more
 - **Multispectral Risk Forecast** — Advanced 24-hour time-series prediction for Traffic, Power, and Safety
 - **Anomaly Detection Engine** — High-precision monitoring of infrastructure health with confidence scoring
 - **Predictive Load Balancing** — Automated power grid and traffic flow optimization suggestions

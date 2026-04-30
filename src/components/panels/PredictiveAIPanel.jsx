@@ -51,20 +51,41 @@ export function PredictiveAIPanel() {
     setInput('');
     setIsTyping(true);
 
-    // Simulate AI response
+    // Advanced Simulated AI Intelligence (Gemini Logic)
     setTimeout(() => {
-      let aiResponse = "Based on current telemetry, all systems are operating within normal parameters. However, I am detecting a slight anomaly in the upcoming data.";
-      
-      const lowerInput = userMsg.text.toLowerCase();
-      if (lowerInput.includes('traffic') || lowerInput.includes('congestion')) {
-        aiResponse = "Predictive models indicate a 94% probability of severe congestion at Chetak Bridge within 15 minutes due to an unmapped event. I recommend rerouting commercial vehicles via ISBT immediately.";
-      } else if (lowerInput.includes('power') || lowerInput.includes('electricity')) {
-        aiResponse = "Power grid load will peak at 08:00. Arera Colony is at 82% risk of a voltage dip. Predictive load balancing has been queued.";
-      } else if (lowerInput.includes('status') || lowerInput.includes('report')) {
-        aiResponse = "City Status: Traffic flow is currently normal but trending upwards. Power grid is stable. 4 predictive anomalies are active and require attention.";
+      const lower = userMsg.text.toLowerCase();
+      let response = "I am processing your query across the Bhopal Digital Twin data streams. Currently, all core subsystems are operational.";
+
+      // AREA SPECIFIC INTELLIGENCE
+      const areas = {
+        'mp nagar': "MP Nagar (Zone 1 & 2) is seeing a 15% increase in commercial power load. Traffic at Chetak Bridge is trending towards 'Congested' in the next 10 minutes.",
+        'arera colony': "Arera Colony environment sensors indicate a micro-climate temperature of 31°C. Power grid stability is at 98.4%. No anomalies detected.",
+        'bittan market': "Bittan Market sector shows high crowd density predictions for the evening. Smart Bins in this zone are currently at 42% capacity.",
+        'new market': "New Market multi-level parking is at 85% occupancy. I recommend directing incoming vehicles to the Roshanpura bypass lots.",
+        'kolar': "Kolar Road infrastructure nodes are reporting normal telemetry. Smart Poles K-12 and K-15 are active with 100% uptime.",
+        'indrapuri': "Indrapuri industrial sector power consumption is steady. AI models predict a slight voltage dip at 19:00 IST.",
+        'bairagarh': "Bairagarh traffic flow is 'Fluid'. I am monitoring a minor backup near the main crossing, likely cleared within 5 minutes."
+      };
+
+      // INTENT MATCHING
+      if (lower.includes('traffic') || lower.includes('jam') || lower.includes('road')) {
+        response = "Analyzing real-time flow... Chetak Bridge and Jyoti Talkies junctions are showing increased latency. AI recommends activating 'Bypass Corridor 4' if vehicle count exceeds 450/min.";
+      } else if (lower.includes('power') || lower.includes('electricity') || lower.includes('voltage')) {
+        response = "Grid Analysis: Total city load is 1.2 GW. Arera Substation is reporting a 2% load surge. Automated balancing is active to prevent any brownouts.";
+      } else if (lower.includes('bin') || lower.includes('waste') || lower.includes('garbage')) {
+        response = "Waste Intelligence: 4 bins in Sector G are above 80% capacity. Logistics AI has dispatched 2 collection units (Truck ID: WT-042) to the location.";
+      } else if (lower.includes('weather') || lower.includes('rain') || lower.includes('temp')) {
+        response = "Atmospheric Scan: Current temp 32°C. Humidity 45%. I detect a low-pressure system moving from the North-East; 20% chance of light showers by tonight.";
       }
 
-      setMessages(prev => [...prev, { role: 'ai', text: aiResponse }]);
+      // CHECK FOR AREA IN QUERY
+      Object.keys(areas).forEach(area => {
+        if (lower.includes(area)) {
+          response = `[Area Intelligence: ${area.toUpperCase()}] ${areas[area]} ${response}`;
+        }
+      });
+
+      setMessages(prev => [...prev, { role: 'ai', text: response }]);
       setIsTyping(false);
     }, 1500);
   }
